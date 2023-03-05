@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @friend_requests = FriendRequest.where(user: @user)
+    @friend_requests = FriendRequest.unaccepted.includes(:user).where(user: @user)
   end
 
   def edit_first_name; end

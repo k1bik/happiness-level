@@ -23,9 +23,9 @@
 
   <h2>Friend Requests</h2>
   <div class="flex flex-col">
-    <% @friend_requests.each do |fr_r| %>
+    <% @friend_requests.each do |request| %>
       <div class="text-lg">
-        <%= fr_r.id %> <%= fr_r.sender.email %>
+        <%= request.id %> <%= request.sender.email %> <%= button_to 'Add', friendships_path(id: request.id, friend_id: request.sender.id), method: :post %>
       </div>
     <% end %>
   </div>
