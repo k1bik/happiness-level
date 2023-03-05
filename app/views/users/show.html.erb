@@ -21,6 +21,15 @@
     <% end %>
   </div>
 
+  <h2>Friend Requests</h2>
+  <div class="flex flex-col">
+    <% @friend_requests.each do |fr_r| %>
+      <div class="text-lg">
+        <%= fr_r.id %> <%= fr_r.sender.email %>
+      </div>
+    <% end %>
+  </div>
+  
   <h2 class="mb-4">Friends</h2>
   <div class="flex flex-col">
     <% @user.friends.each do |f| %>

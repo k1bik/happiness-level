@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    @friend_requests = FriendRequest.where(user: @user)
+  end
 
   def edit_first_name; end
 

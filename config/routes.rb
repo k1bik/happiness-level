@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :friendships, only: %i[create destroy]
+  resources :friend_requests, only: %i[create]
 
   root "users#index"
 end
