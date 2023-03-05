@@ -1,0 +1,4 @@
+<% @users.each do |u| %>
+<%= u.email %>
+<% end %>
+<%= link_to 'My profile', user_path(current_user) %>

@@ -1,1 +1,21 @@
-<h1>HI</h1>
+<%= turbo_frame_tag 'edit_form' %>
+
+<div class="flex flex-col space-y-4">
+  <div class="text-lg">
+    <%= turbo_frame_tag :first_name do %>
+      Name: <%= @user.first_name %> <%= link_to "Edit", edit_first_name_user_path(@user) %>
+    <% end %>
+  </div>
+
+  <div class="text-lg">
+    <%= turbo_frame_tag :last_name do %>
+      Last name: <%= @user.last_name %> <%= link_to "Edit", edit_last_name_user_path(@user) %>
+    <% end %>
+  </div>
+
+  <div class="text-lg">
+    <%= turbo_frame_tag :username do %>
+      Username: <%= @user.username %> <%= link_to "Edit", edit_username_user_path(@user) %>
+    <% end %>
+  </div>
+</div>
