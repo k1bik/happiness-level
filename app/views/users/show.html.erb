@@ -1,21 +1,32 @@
 <%= turbo_frame_tag 'edit_form' %>
 
+<%= link_to "Back", users_path %>
+
 <div class="flex flex-col space-y-4">
   <div class="text-lg">
     <%= turbo_frame_tag :first_name do %>
-      Name: <%= @user.first_name %> <%= link_to "Edit", edit_first_name_user_path(@user) %>
+      Name: <%= @user.first_name %> <%= link_to attribute_placeholer(@user.first_name), edit_first_name_user_path(@user) %>
     <% end %>
   </div>
 
   <div class="text-lg">
     <%= turbo_frame_tag :last_name do %>
-      Last name: <%= @user.last_name %> <%= link_to "Edit", edit_last_name_user_path(@user) %>
+      Last name: <%= @user.last_name %> <%= link_to attribute_placeholer(@user.last_name), edit_last_name_user_path(@user) %>
     <% end %>
   </div>
 
   <div class="text-lg">
     <%= turbo_frame_tag :username do %>
-      Username: <%= @user.username %> <%= link_to "Edit", edit_username_user_path(@user) %>
+      Username: <%= @user.username %> <%= link_to attribute_placeholer(@user.username), edit_username_user_path(@user) %>
+    <% end %>
+  </div>
+
+  <h2 class="mb-4">Friends</h2>
+  <div class="flex flex-col">
+    <% @user.friends.each do |f| %>
+      <div class="text-lg">
+        <%= link_to "#{f.email}", user_path(f) %> <%= button_to 'Destroy', friendship_path(f), method: :delete %>
+      </div>
     <% end %>
   </div>
 </div>

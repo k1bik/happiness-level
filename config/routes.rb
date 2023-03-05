@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get 'edit_username'
     end
   end
-  # Defines the root path route ("/")
+
+  resources :friendships, only: %i[create destroy]
+
   root "users#index"
 end
